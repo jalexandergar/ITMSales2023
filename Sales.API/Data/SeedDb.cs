@@ -15,6 +15,7 @@ namespace Sales.API.Data
         {
             await _context.Database.EnsureCreatedAsync();
             await CheckCountriesAsync();
+            await CheckCategoriesAsync();
         }
 
         private async Task CheckCountriesAsync()
@@ -78,6 +79,27 @@ namespace Sales.API.Data
                             }
                         },
                     }
+                });
+
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task CheckCategoriesAsync()
+        {
+            if (!_context.Categories.Any())
+            {
+                _context.Categories.Add(new Category
+                {
+                    Name = "Granos"
+                }); ;
+                _context.Categories.Add(new Category
+                {
+                    Name = "Gaseosas"
+                }) ;
+                _context.Categories.Add(new Category
+                {
+                    Name = "Licores"
                 });
 
                 await _context.SaveChangesAsync();

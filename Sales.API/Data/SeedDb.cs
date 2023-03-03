@@ -92,7 +92,7 @@ namespace Sales.API.Data
                 _context.Categories.Add(new Category
                 {
                     Name = "Granos"
-                }); ;
+                });
                 _context.Categories.Add(new Category
                 {
                     Name = "Gaseosas"
@@ -100,6 +100,42 @@ namespace Sales.API.Data
                 _context.Categories.Add(new Category
                 {
                     Name = "Licores"
+                }) ;
+                _context.Categories.Add(new Category
+                {
+                    Name = "Carnes"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Lacteos"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Calzado"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Ropa"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Electrodomesticos"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Aseo"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Belleza"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Frutas"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Perfumes"
                 });
 
                 await _context.SaveChangesAsync();

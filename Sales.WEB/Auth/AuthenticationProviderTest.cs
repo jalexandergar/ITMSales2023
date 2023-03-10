@@ -8,7 +8,7 @@ namespace Sales.WEB.Auth
         public async override Task<AuthenticationState> GetAuthenticationStateAsync()
         {
             var anonimous = new ClaimsIdentity();
-            var jeissongarcia = new ClaimsIdentity(new List<Claim>
+            var jalexandergar = new ClaimsIdentity(new List<Claim>
             {
                 new Claim("FirstName", "Jeisson"),
                 new Claim("LastName", "Garcia"),
@@ -16,7 +16,7 @@ namespace Sales.WEB.Auth
                 new Claim(ClaimTypes.Role, "Admin")
             },
             authenticationType: "test");
-            return await Task.FromResult(new AuthenticationState(new ClaimsPrincipal(jeissongarcia)));
+            return await Task.FromResult(new AuthenticationState(new ClaimsPrincipal(jalexandergar)));
         }
     }
 }

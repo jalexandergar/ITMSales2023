@@ -24,12 +24,70 @@ namespace Sales.API.Data
         {
             await _context.Database.EnsureCreatedAsync();
             await CheckCountriesAsync();
+            await CheckCategoriesAsync();
         }
 
         private async Task CheckRolesAsync()
         {
             await _userHelper.CheckRoleAsync(UserType.Admin.ToString());
             await _userHelper.CheckRoleAsync(UserType.User.ToString());
+        }
+
+        private async Task CheckCategoriesAsync()
+        {
+            if (!_context.Categories.Any())
+            {
+                _context.Categories.Add(new Category
+                {
+                    Name = "Granos"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Gaseosas"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Licores"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Carnes"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Lacteos"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Calzado"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Ropa"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Electrodomesticos"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Aseo"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Belleza"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Frutas"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Perfumes"
+                });
+
+                await _context.SaveChangesAsync();
+            }
         }
 
         private async Task<User> CheckUserAsync(string document, string firstName, string lastName, string email, string phone, string address, UserType userType)
@@ -113,63 +171,6 @@ namespace Sales.API.Data
                         }
                     }
                 }
-            }
-        }
-
-        private async Task CheckCategoriesAsync()
-        {
-            if (!_context.Categories.Any())
-            {
-                _context.Categories.Add(new Category
-                {
-                    Name = "Granos"
-                });
-                _context.Categories.Add(new Category
-                {
-                    Name = "Gaseosas"
-                }) ;
-                _context.Categories.Add(new Category
-                {
-                    Name = "Licores"
-                }) ;
-                _context.Categories.Add(new Category
-                {
-                    Name = "Carnes"
-                });
-                _context.Categories.Add(new Category
-                {
-                    Name = "Lacteos"
-                });
-                _context.Categories.Add(new Category
-                {
-                    Name = "Calzado"
-                });
-                _context.Categories.Add(new Category
-                {
-                    Name = "Ropa"
-                });
-                _context.Categories.Add(new Category
-                {
-                    Name = "Electrodomesticos"
-                });
-                _context.Categories.Add(new Category
-                {
-                    Name = "Aseo"
-                });
-                _context.Categories.Add(new Category
-                {
-                    Name = "Belleza"
-                });
-                _context.Categories.Add(new Category
-                {
-                    Name = "Frutas"
-                });
-                _context.Categories.Add(new Category
-                {
-                    Name = "Perfumes"
-                });
-
-                await _context.SaveChangesAsync();
             }
         }
     }

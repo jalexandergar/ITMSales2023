@@ -57,7 +57,7 @@
 
     private async Task InternalSelectedPage(PageModel pageModel)
     {
-        if (pageModel.Page == 0 || pageModel.Page == (TotalPages+1))
+        if (pageModel.Page < 1 || pageModel.Page > TotalPages)
         {
             return;
         }
